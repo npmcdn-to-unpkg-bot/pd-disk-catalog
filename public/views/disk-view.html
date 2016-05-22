@@ -1,0 +1,13 @@
+<div class="col-sm-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">{{diskCtrl.disk.name}}</div>
+    <div class="panel-body">
+    	<img ng-src="{{diskCtrl.imageOrDefault(diskCtrl.disk)}}" class="img-responsive pull-right" alt="Folder Img">
+    	<p class="pull-left"><b>Artist:</b> {{diskCtrl.disk.artist}}<br>
+    	<b>Year:</b> {{diskCtrl.disk.year}}<br>
+    	<b>Catalogs:</b> {{diskCtrl.disk.catalogUrl}}</p>
+
+    </div>
+    <div class="panel-footer">{{diskCtrl.disk.description}}</div>
+  </div>
+</div>
