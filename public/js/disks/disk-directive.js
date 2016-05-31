@@ -1,5 +1,5 @@
 (function() {
-	function DiskDirective() {
+	function DiskDescription() {
 		return {
 			restrict: 'E',
 			templateUrl: '/views/disk-view.html',
@@ -7,5 +7,14 @@
 			controllerAs: 'diskCtrl'
 		};
 	};
-	angular.module('diskCatalog').directive('diskDescription', DiskDirective);
+	function DiskEdition() {
+		return {
+			restrict: 'E',
+			templateUrl: '/views/disk-edit.html',
+			controller: 'DiskController',
+			controllerAs: 'diskCtrl'
+		};
+	};
+	angular.module('diskCatalog').directive('diskDescription', DiskDescription);
+	angular.module('diskCatalog').directive('diskEdition', DiskEdition);
 })()

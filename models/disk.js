@@ -1,15 +1,11 @@
-var mongoose = require('mongoose');
-
-var db = mongoose.createConnection(process.env.MONGODB_URL||'localhost', 'pd-catalog');
-
-var DiskSchema = new mongoose.Schema({
-	name: {
-		type: String,
-	},
-	disks: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'disk'
-	}
-});
-
-module.exports = db.model('disks', DiskSchema);
+module.exports = function(mongoose) {
+    var DiskSchema = new mongoose.Schema({
+        name: {
+            type: String,
+        },
+        artist: {
+            type: String,
+        }
+    });
+    return mongoose.model('Disk', DiskSchema);
+}

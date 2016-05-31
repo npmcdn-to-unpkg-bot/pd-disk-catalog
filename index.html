@@ -49,10 +49,15 @@
   </div>
 </nav>
 
-<div class="container">    
-  <div class="row">
+<div class="container-fluid">    
+  <div class="row" ng-controller="DiskController as diskCtrl">
+  <div class="col-sm-12">
+  	<a ng-click="diskCtrl.showForm()" ng-disabled="diskCtrl.isEditing" class="btn btn-primary" style="margin-bottom: 20px">New</a>
+  </div>
     <disk-description></disk-description>
-</div><br>
+    <disk-edition></disk-edition>
+</div>
+<br>
 
 <footer class="container-fluid text-center">
   

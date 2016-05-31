@@ -1,3 +1,9 @@
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'pd-catalog');
+
+var CollectionModel = require('./models/collection')(mongoose);
+var DiskModel = require('./models/disk')(mongoose);
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,8 +16,6 @@ var compression = require('compression');
 var collections = require('./routes/collections');
 var disks = require('./routes/disks');
 
-var CollectionModel = require('./models/collection');
-var DiskModel = require('./models/disk');
 
 var app = express();
 app.use(compression());
@@ -27,11 +31,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname ,'index.html'));
 });
-app.use('/collections', collections(CollectionModel));
 app.use('/disks', disks(DiskModel));
+app.use('/collections', collections(CollectionModel));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
